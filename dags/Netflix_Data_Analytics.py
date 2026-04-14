@@ -6,13 +6,13 @@ from airflow.operators.bash import BashOperator
 from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
 
 import sys
-sys.path.append('/home/ubuntu/airflow-code-demo/dags')
+sys.path.append('/opt/airflow/dags')
 from source_load.data_load import run_script
 from alerting.callback_script import callback_function
 from alerting.slack_alert import task_success_slack_alert
 
-DBT_BIN     = '/home/ubuntu/dbt-env/bin/dbt'
-DBT_DIR     = '/home/ubuntu/netflix_project'
+DBT_BIN     = 'dbt'
+DBT_DIR     = '/opt/airflow/netflix_project'
 DBT_PROFILE = 'netflix_project'
 
 default_args = {
